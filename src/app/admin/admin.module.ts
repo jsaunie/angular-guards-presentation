@@ -4,10 +4,14 @@ import {RouterModule, Routes} from '@angular/router';
 import {AdminComponent} from './components/admin/admin.component';
 import {FeaturesComponent} from './components/features/features.component';
 import {UsersComponent} from './components/users/users.component';
+import {AdminGuard} from '../core/guards/admin.guard';
 
 const routes: Routes = [
   {
-    path: '', component: AdminComponent, children: [
+    path: '',
+    component: AdminComponent,
+    canActivateChild: [AdminGuard],
+    children: [
       {path: '', component: FeaturesComponent, pathMatch: 'full'},
       {path: 'users', component: UsersComponent},
     ]

@@ -1,8 +1,8 @@
-import {AuthGuard} from './auth/auth.guard';
+import {AdminGuard} from './admin.guard';
 
 
 const Guards = [
-  AuthGuard,
+  AdminGuard,
 ];
 
 export default Guards;
