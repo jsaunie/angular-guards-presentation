@@ -5,6 +5,7 @@ import {AdminComponent} from './components/admin/admin.component';
 import {FeaturesComponent} from './components/features/features.component';
 import {UsersComponent} from './components/users/users.component';
 import {AdminGuard} from '../core/guards/admin.guard';
+import {AdminResolverService} from './services/admin-resolver.service';
 
 const routes: Routes = [
   {
@@ -12,7 +13,14 @@ const routes: Routes = [
     component: AdminComponent,
     canActivateChild: [AdminGuard],
     children: [
-      {path: '', component: FeaturesComponent, pathMatch: 'full'},
+      {
+        path: '',
+        component: FeaturesComponent,
+        pathMatch: 'full',
+        resolve: {
+          features: AdminResolverService
+        }
+      },
       {path: 'users', component: UsersComponent, canDeactivate: [AdminGuard]},
     ]
   },

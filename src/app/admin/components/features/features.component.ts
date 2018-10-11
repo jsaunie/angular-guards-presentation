@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-features',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./features.component.css']
 })
 export class FeaturesComponent implements OnInit {
+  public features: string[] = [];
 
-  constructor() { }
+  constructor( private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
+    this.route.data.subscribe((data: { features: string[] }) => {
+        this.features = data.features || [];
+      });
   }
 
 }
