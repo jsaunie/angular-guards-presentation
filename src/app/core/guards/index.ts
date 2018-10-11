@@ -1,4 +1,4 @@
-import {AuthGuard} from './auth/auth.guard';
+import {AuthGuard} from './auth.guard';
 
 
 const Guards = [

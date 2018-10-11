@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-can-activate',
   template: `
     <p>
-      can-activate works!
+      CanActivate works!
     </p>
   `,
 })
