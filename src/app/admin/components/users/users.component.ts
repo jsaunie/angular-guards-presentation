@@ -13,7 +13,7 @@ export class UsersComponent implements OnInit {
   }
 
   public canDeactivate() {
-    return confirm('Do you really want exit this page?');
+    return confirm('[canDeactivate] Do you really want exit this page?');
   }
 
 }
