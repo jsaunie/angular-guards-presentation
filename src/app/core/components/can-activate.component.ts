@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
       can-activate works!
     </p>
   `,
-  styleUrls: ['./can-activate.component.css']
 })
 export class CanActivateComponent implements OnInit {
 

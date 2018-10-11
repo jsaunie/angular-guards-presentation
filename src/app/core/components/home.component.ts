@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
       home works!
     </p>
   `,
-  styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
 
