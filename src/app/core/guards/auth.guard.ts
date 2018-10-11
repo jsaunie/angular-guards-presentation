@@ -9,6 +9,6 @@ export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    return confirm('Are you authenticated ?');
+    return confirm('[canActivate] Are you authenticated ?');
   }
 }
