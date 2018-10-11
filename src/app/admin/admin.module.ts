@@ -13,7 +13,7 @@ const routes: Routes = [
     canActivateChild: [AdminGuard],
     children: [
       {path: '', component: FeaturesComponent, pathMatch: 'full'},
-      {path: 'users', component: UsersComponent},
+      {path: 'users', component: UsersComponent, canDeactivate: [AdminGuard]},
     ]
   },
 ];

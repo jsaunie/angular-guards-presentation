@@ -12,4 +12,8 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
   }
 
+  public canDeactivate() {
+    return confirm('Do you really want exit this page?');
+  }
+
 }
