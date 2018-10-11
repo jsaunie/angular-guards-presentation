@@ -11,7 +11,7 @@ export class AdminGuard implements CanActivateChild, CanDeactivate<UsersComponen
   canActivateChild(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    return confirm('Are you allowed to access child route?');
+    return confirm('[canActivateChild] Are you allowed to access child route?');
   }
 
   canDeactivate(
