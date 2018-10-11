@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateChild, CanDeactivate, CanLoad} from '@angular/router';
+import {ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateChild, CanDeactivate, CanLoad, CanActivate} from '@angular/router';
 import {Observable} from 'rxjs';
 import {UsersComponent} from '../../admin/components/users/users.component';
 import {Route} from '@angular/router/src/config';
@@ -7,7 +7,13 @@ import {Route} from '@angular/router/src/config';
 @Injectable({
   providedIn: 'root'
 })
-export class AdminGuard implements CanActivateChild, CanDeactivate<UsersComponent>, CanLoad {
+export class AdminGuard implements CanActivateChild, CanDeactivate<UsersComponent>, CanLoad, CanActivate {
+
+  canActivate(
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    return confirm('[canActivate] Are you allowed to access this route?');
+  }
 
   canActivateChild(
     next: ActivatedRouteSnapshot,

@@ -18,5 +18,5 @@ export class AdminResolverService implements Resolve<string[]> {
       return of(null);
     }
   }
-  
+
 }

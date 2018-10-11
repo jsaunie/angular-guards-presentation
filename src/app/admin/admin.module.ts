@@ -6,22 +6,25 @@ import {FeaturesComponent} from './components/features/features.component';
 import {UsersComponent} from './components/users/users.component';
 import {AdminGuard} from '../core/guards/admin.guard';
 import {AdminResolverService} from './services/admin-resolver.service';
+import {TestGuard} from '../core/guards/test.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: AdminComponent,
-    canActivateChild: [AdminGuard],
+    canActivateChild: [AdminGuard, TestGuard],
+    canActivate: [TestGuard],
     children: [
       {
         path: '',
         component: FeaturesComponent,
         pathMatch: 'full',
+        canActivate: [AdminGuard],
         resolve: {
           features: AdminResolverService
         }
       },
-      {path: 'users', component: UsersComponent, canDeactivate: [AdminGuard]},
+      {path: 'users', component: UsersComponent, canActivate: [AdminGuard], canDeactivate: [AdminGuard]},
     ]
   },
 ];
